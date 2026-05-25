@@ -1,0 +1,17 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Logs and generated output
+*.log
+dist/
+build/
+coverage/
+
+# Local-only scratch files
+scratch/
+tmp/
+*.tmp

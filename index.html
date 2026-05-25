@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brahmanda</title>
+  <meta name="description" content="An interactive universe simulator combining cosmology, quantum fields, particle events, entropy, and audio-reactive geometry." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <canvas id="universe"></canvas>
+
+    <header class="topbar">
+      <section class="identity">
+        <h1>BRAHMANDA</h1>
+      </section>
+
+      <nav class="mode-tabs" aria-label="Simulation mode">
+        <button class="mode-tab active" data-mode="cosmos" type="button">Cosmos</button>
+        <button class="mode-tab" data-mode="quantum" type="button">Quantum</button>
+        <button class="mode-tab" data-mode="collider" type="button">Collider</button>
+        <button class="mode-tab" data-mode="entropy" type="button">Entropy</button>
+      </nav>
+
+      <section class="status-strip" aria-label="Live simulation status">
+        <div>
+          <span>Age</span>
+          <strong id="metric-age">13.8 Gy</strong>
+        </div>
+        <div>
+          <span>CMB</span>
+          <strong id="metric-cmb">2.73 K</strong>
+        </div>
+        <div>
+          <span>Entropy</span>
+          <strong id="metric-entropy">0.62</strong>
+        </div>
+      </section>
+    </header>
+
+    <aside class="control-rail" aria-label="Simulation controls">
+      <label class="control-row">
+        <span>Epoch</span>
+        <input id="epoch" type="range" min="0" max="100" value="82" />
+        <output id="epoch-value">82</output>
+      </label>
+      <label class="control-row">
+        <span>Expansion</span>
+        <input id="expansion" type="range" min="0" max="200" value="58" />
+        <output id="expansion-value">58</output>
+      </label>
+      <label class="control-row">
+        <span>Quantum</span>
+        <input id="quantum" type="range" min="0" max="100" value="46" />
+        <output id="quantum-value">46</output>
+      </label>
+      <label class="control-row">
+        <span>Gravity</span>
+        <input id="gravity" type="range" min="0" max="100" value="64" />
+        <output id="gravity-value">64</output>
+      </label>
+
+      <label class="select-row">
+        <span>Event</span>
+        <select id="collider-event">
+          <option value="">Weighted random</option>
+          <option value="zpeak">Z boson decay</option>
+          <option value="higgs_4l">Higgs to 4 leptons</option>
+          <option value="dimuon">Di-muon</option>
+          <option value="dielectron">Di-electron</option>
+          <option value="ttbar">Top pair</option>
+          <option value="qcd_jets">QCD jets</option>
+        </select>
+      </label>
+
+      <div class="button-grid">
+        <button id="seed-event" type="button">Inject</button>
+        <button id="collapse" type="button">Collapse Field</button>
+        <button id="audio" type="button" aria-pressed="false">Sonify</button>
+        <button id="reset" type="button">Reset</button>
+      </div>
+    </aside>
+
+    <section class="readout-panel" aria-label="Physics readout">
+      <div class="readout-header">
+        <p id="mode-kicker">Cosmic Web</p>
+        <h2 id="mode-title">Large-scale structure</h2>
+      </div>
+      <div class="readout-grid">
+        <div>
+          <span>Particles</span>
+          <strong id="metric-particles">900</strong>
+        </div>
+        <div>
+          <span>Events</span>
+          <strong id="metric-events">0</strong>
+        </div>
+        <div>
+          <span id="metric-redshift-label">Redshift</span>
+          <strong id="metric-redshift">0.18</strong>
+        </div>
+        <div>
+          <span id="metric-coherence-label">Coherence</span>
+          <strong id="metric-coherence">0.71</strong>
+        </div>
+      </div>
+      <canvas id="spectrum" width="560" height="120"></canvas>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
