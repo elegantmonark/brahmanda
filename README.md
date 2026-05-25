@@ -4,6 +4,8 @@
 
 The project is currently a static prototype: no backend, no build tooling, and no install step. Open the page and start experimenting.
 
+**Live Demo:** [brahmanda.netlify.app](https://brahmanda.netlify.app/)
+
 ## Preview
 
 <!-- Add a screenshot or short demo GIF here after publishing:
