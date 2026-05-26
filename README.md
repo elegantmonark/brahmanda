@@ -1,25 +1,109 @@
+<div align="center">
+
 # Brahmanda
 
-**Brahmanda** is an interactive browser-based universe simulator that blends cosmology, quantum-field motion, particle-collision traces, entropy flow, and audio-reactive geometry into one full-screen canvas experience.
+**An interactive universe simulator for cosmology, quantum fields, collider traces, entropy flow, and audio-reactive geometry.**
 
-The project is currently a static prototype: no backend, no build tooling, and no install step. Open the page and start experimenting.
+[Live Demo](https://brahmanda.netlify.app/) · [Demo Video](docs/brahmanda-demo.mp4) · [Architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md)
 
-**Live Demo:** [brahmanda.netlify.app](https://brahmanda.netlify.app/)
+</div>
 
-## Preview
+---
 
-<!-- Add a screenshot or short demo GIF here after publishing:
-![Brahmanda simulation preview](docs/preview.png)
--->
+## Contents
 
-## What It Does
+- [Overview](#overview)
+- [Demo](#demo)
+- [Features](#features)
+- [Simulation Modes](#simulation-modes)
+- [Controls](#controls)
+- [How It Works](#how-it-works)
+- [Run Locally](#run-locally)
+- [Project Structure](#project-structure)
+- [Status](#status)
 
-- Simulates four visual modes: Cosmos, Quantum, Collider, and Entropy.
-- Renders large-scale structure, quantum foam, detector-style collision traces, and entropy surfaces on an HTML canvas.
-- Generates seeded particle events such as Z boson decays, Higgs to four leptons, di-muon events, top-pair events, and QCD jets.
-- Exposes live controls for epoch, expansion, quantum fluctuation, and gravity.
-- Shows live telemetry for simulated age, CMB temperature, entropy, redshift, coherence, particles, and event count.
-- Includes an optional WebAudio layer for sonified interaction.
+## Overview
+
+Brahmanda is a full-screen browser experiment that turns ideas from cosmology, quantum mechanics, particle physics, thermodynamics, and sound into one interactive simulation surface.
+
+It is built as a static app with vanilla JavaScript, Canvas 2D, and the WebAudio API. There is no backend, no install step, and no build process. Open the demo and start exploring.
+
+## Demo
+
+**Live:** [brahmanda.netlify.app](https://brahmanda.netlify.app/)
+
+**Video:** [Watch the demo](docs/brahmanda-demo.mp4)
+
+The demo moves through Brahmanda's four main visual states: cosmic structure, quantum field motion, collider-style particle events, and entropy flow.
+
+## Features
+
+<details open>
+<summary><strong>Interactive physics-inspired canvas</strong></summary>
+
+Brahmanda renders a continuously animated universe scene on an HTML canvas. Pointer input affects the simulation, allowing the user to drag through fields, create disturbances, collapse structures, and seed events.
+
+</details>
+
+<details>
+<summary><strong>Collider-style event generation</strong></summary>
+
+The collider mode generates readable particle-event traces inspired by detector displays. Event presets include Z boson decays, Higgs to four leptons, di-muon events, di-electron events, top-pair events, and QCD jets.
+
+The model uses particle mass, charge, transverse momentum, pseudorapidity, detector layers, missing energy, and stylized curvature. It is visual and educational, not a replacement for a scientific detector simulator.
+
+</details>
+
+<details>
+<summary><strong>Live telemetry</strong></summary>
+
+The interface displays simulated age, CMB temperature, entropy, redshift, coherence, particle count, and event count. These readouts update as the user changes the current epoch, expansion, quantum fluctuation, and gravity parameters.
+
+</details>
+
+<details>
+<summary><strong>Optional sonification</strong></summary>
+
+The WebAudio layer maps interaction and simulation state into oscillators, filters, gain envelopes, and short percussive bursts. Audio stays disabled until the user presses `Sonify`, matching browser autoplay requirements.
+
+</details>
+
+## Simulation Modes
+
+| Mode | What it shows |
+| --- | --- |
+| `Cosmos` | A rotating large-scale structure field with cosmic-web style connections. |
+| `Quantum` | A fluctuating vector field with local collapse disturbances. |
+| `Collider` | Standard Model-inspired event traces inside a stylized detector. |
+| `Entropy` | A thermal surface with expanding fronts and information flow. |
+
+## Controls
+
+| Control | Purpose |
+| --- | --- |
+| `Epoch` | Moves the simulation between earlier and later universe states. |
+| `Expansion` | Changes the scale and spread of the rendered system. |
+| `Quantum` | Increases field fluctuation, particle density, and disturbance strength. |
+| `Gravity` | Changes pointer pull, clustering, and field response. |
+| `Event` | Chooses the collider event preset used by `Inject`. |
+| `Inject` | Adds a mode-specific event or disturbance. |
+| `Collapse Field` | Pulls the current field toward the pointer region. |
+| `Sonify` | Enables audio-reactive synthesis. |
+| `Reset` | Reseeds the simulation state. |
+
+## How It Works
+
+Brahmanda starts from browser cryptographic randomness when available, then advances the state with a deterministic PRNG so each reset produces a coherent but different universe.
+
+The main animation loop:
+
+1. Reads the current mode, sliders, pointer state, and event queue.
+2. Updates simulation objects such as stars, waves, disturbances, entropy fronts, and collider events.
+3. Draws the selected mode on the main canvas.
+4. Updates the telemetry panel and spectrum display.
+5. Updates WebAudio parameters if sound is enabled.
+
+More detail is available in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Run Locally
 
@@ -27,41 +111,31 @@ Open `index.html` directly in a modern browser.
 
 No package manager is required.
 
-## Controls
-
-| Control | Purpose |
-| --- | --- |
-| `Cosmos` | Large-scale cosmic web and structure evolution. |
-| `Quantum` | Vacuum fluctuation field with pointer-driven disturbances. |
-| `Collider` | Standard Model-inspired detector traces and event readouts. |
-| `Entropy` | Thermal arrow and information dispersal surface. |
-| `Inject` | Adds a visual or physics event depending on the active mode. |
-| `Collapse Field` | Pulls the field toward the current pointer position. |
-| `Sonify` | Enables the browser audio synthesis layer. |
-| `Reset` | Reseeds the simulation state. |
-
 ## Project Structure
 
 ```text
 .
-├── app.js          # Simulation state, renderer, physics-inspired event generation, audio
-├── index.html      # Static app shell and controls
-├── style.css       # Full-screen interface styling and responsive layout
-├── docs/
-│   ├── ARCHITECTURE.md
-│   └── ROADMAP.md
-└── README.md
++-- app.js
++-- index.html
++-- style.css
++-- docs/
+|   +-- ARCHITECTURE.md
+|   +-- ROADMAP.md
+|   +-- brahmanda-demo.mp4
++-- README.md
 ```
-
-## Technical Notes
-
-Brahmanda is written in vanilla JavaScript with the Canvas 2D API and WebAudio API. Randomness is seeded through browser cryptographic randomness when available, then advanced through a deterministic PRNG so each reset produces a coherent simulation state.
-
-The collider mode is not a scientific detector simulator. It is a physics-inspired visual model using particle masses, charge, transverse momentum, pseudorapidity, detector layers, missing energy, and stylized track curvature to create readable collision events.
 
 ## Status
 
-Prototype. The repo is suitable for public viewing, experimentation, screenshots, and GitHub Pages hosting.
+Prototype. Brahmanda is suitable for public viewing, experimentation, screenshots, demos, and GitHub/Netlify hosting.
+
+## Roadmap
+
+- Add a compressed GIF or preview image for the README.
+- Add shareable seeded replay links.
+- Add PNG snapshot export.
+- Explore a Three.js renderer for depth, camera motion, and volumetric scenes.
+- Add a clearer particle/event legend for collider mode.
 
 ## License
 
