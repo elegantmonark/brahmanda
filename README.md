@@ -4,7 +4,7 @@
 
 **An interactive universe simulator for cosmology, quantum fields, collider traces, entropy flow, and audio-reactive geometry.**
 
-[Live Demo](https://brahmanda.netlify.app/) · [Demo Video](docs/brahmanda-demo.mp4) · [Architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md)
+[Live Demo](https://brahmanda.netlify.app/) · [Demo Video](https://youtu.be/Ki1QejVvP8E) · [Architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md)
 
 </div>
 
@@ -32,7 +32,7 @@ It is built as a static app with vanilla JavaScript, Canvas 2D, and the WebAudio
 
 **Live:** [brahmanda.netlify.app](https://brahmanda.netlify.app/)
 
-**Video:** [Watch the demo](docs/brahmanda-demo.mp4)
+**Video:** [Watch the demo on YouTube](https://youtu.be/Ki1QejVvP8E)
 
 The demo moves through Brahmanda's four main visual states: cosmic structure, quantum field motion, collider-style particle events, and entropy flow.
 
@@ -121,7 +121,6 @@ No package manager is required.
 +-- docs/
 |   +-- ARCHITECTURE.md
 |   +-- ROADMAP.md
-|   +-- brahmanda-demo.mp4
 +-- README.md
 ```
 
