@@ -21,6 +21,7 @@
 - [Run Locally](#run-locally)
 - [Project Structure](#project-structure)
 - [Status](#status)
+- [Current Focus](#current-focus)
 
 ## Overview
 
@@ -127,6 +128,10 @@ No package manager is required.
 ## Status
 
 Prototype. Brahmanda is suitable for public viewing, experimentation, screenshots, demos, and GitHub/Netlify hosting.
+
+## Current Focus
+
+Brahmanda is being kept as a polished public creative-physics build rather than the centre of my current research direction. The most useful next improvements are presentation-focused: reproducible seeded states, better exported screenshots, and clearer legends for collider and entropy modes.
 
 ## Roadmap
 
